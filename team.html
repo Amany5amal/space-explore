@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <title>Solar System</title>
+    <link rel="icon" href="images/logo.png">
+    <style>
+        @font-face {
+            font-family: prompt;
+            src: url(fonts/Prompt-Light.ttf);
+        }
+
+        @font-face {
+            font-family: sansserifbook;
+            src: url(fonts/SansSerifBookFLF.otf);
+        }
+
+        * {
+            font-family: sansserifbook;
+            color: white;
+        }
+
+        main {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.95)), url("images/2k_stars_milky_way.jpg");
+            height: 1200px;
+            background-size: cover;
+        }
+
+        main h1 {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        main h3 {
+            color: #af8650;
+            text-align: center;
+            animation: shakeIt 2s ease-in infinite;
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+
+        @keyframes shakeIt {
+            0% {
+                animation-timing-function: ease-out;
+                transform: scale(1);
+                transform-origin: center center;
+            }
+
+            10% {
+                animation-timing-function: ease-in;
+                transform: scale(0.91);
+            }
+
+            17% {
+                animation-timing-function: ease-out;
+                transform: scale(0.98);
+            }
+
+            33% {
+                animation-timing-function: ease-in;
+                transform: scale(0.87);
+            }
+
+            45% {
+                animation-timing-function: ease-out;
+                transform: scale(1);
+            }
+        }
+
+        main p {
+            font-size: 16px;
+            font-weight: lighter;
+            opacity: 0.6;
+            font-family: prompt;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 0px 0px 0px;
+            margin: 0px 50px;
+        }
+
+        header img {
+            margin: 0px 20px;
+        }
+
+        nav {
+            margin: 0px 0px;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li a {
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 100;
+            transition: all 0.5s ease 0s;
+        }
+
+        li a:hover {
+            color: #af8650;
+        }
+
+        .container-solarsystem {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+        }
+
+        .container-solarsystem model-viewer {
+            filter: saturate(120%);
+            margin: 0px 10px;
+            transition: all 0.5s ease 0s;
+        }
+
+        .container-solarsystem model-viewer:hover {
+            transform: scale(1.2);
+        }
+
+        .sun model-viewer:hover {
+            transform: scale(1.1);
+        }
+
+        .earth model-viewer:hover {
+            transform: scale(1.2), rotate(-40deg);
+        }
+
+        .sun model-viewer {
+            height: 450px;
+            width: 450px;
+        }
+
+        .mercury model-viewer {
+            height: 50px;
+            width: 50px;
+        }
+
+        .venus model-viewer {
+            height: 80px;
+            width: 80px;
+        }
+
+        .earth model-viewer {
+            height: 80px;
+            width: 80px;
+        }
+
+        .mars model-viewer {
+            height: 40px;
+            width: 40px;
+        }
+
+        .jupiter model-viewer {
+            filter: saturate(200%);
+            height: 250px;
+            width: 250px;
+        }
+
+        .saturn model-viewer {
+            filter: saturate(200%);
+            transform: rotate(-40deg);
+            height: 300px;
+            width: 300px;
+        }
+
+        .uranus model-viewer {
+            filter: saturate(200%);
+            height: 110px;
+            width: 110px;
+        }
+
+        .neptune model-viewer {
+            filter: saturate(200%);
+            height: 110px;
+            width: 110px;
+        }
+
+        .container-solar {
+            height: 800px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.95)), url(images/2k_stars.jpg);
+            padding: 20px 0px;
+            display: flex;
+            justify-content: center;
+            margin-top: 150px;
+        }
+
+        .container-solar h1 {
+            font-size: 100px;
+            font-weight: bold;
+        }
+
+        .container-solar p {
+            font-family: prompt;
+            width: 500px;
+            margin: 20px 0px;
+        }
+
+        .container-solar h3 {
+            font-family: prompt;
+            padding-top: 50px;
+            font-size: 25px;
+            color: #af8650;
+        }
+
+        .card-solar {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .content-sun {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_sun.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-mercury {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_mercury.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-venus {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_venus_surface.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-earth {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_earth.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-mars {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_mars.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-jupiter {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_jupiter.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-saturn {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_saturn.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-uranus {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_uranus.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .content-neptune {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-image: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 1)), url(images/2k_neptune.jpg);
+            height: 800px;
+            width: 500px;
+            background-size: cover;
+            margin-right: 50px;
+        }
+
+        .text-solar {
+            margin: 0px 20px;
+        }
+
+        .text-solar p {
+            font-size: 16px;
+        }
+
+        .info-solar {
+            display: flex;
+            justify-content: left;
+            margin: 50px 0px;
+        }
+
+        .info-solar div {
+            border: 0.1em solid white;
+            width: 220px;
+            padding: 10px;
+        }
+
+        .info-solar h6 {
+            font-family: prompt;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .info-solar p {
+            font-family: prompt;
+            font-size: 16px;
+        }
+
+        .img-solar {
+            border: 1px solid red;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .ref {
+            margin-top: 100px;
+            padding: 100px;
+        }
+
+        .ref span {
+            display: flex;
+        }
+
+        .ref h1 {
+            font-family: prompt;
+            font-weight: bold;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .ref p {
+            font-family: prompt;
+            font-size: 18px;
+        }
+
+        .ref a {
+            margin-left: 10px;
+            color: #af8650;
+            font-size: 16px;
+        }
+
+        footer {
+            background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url("images/earth-1365995_1920.jpg");
+            height: 350px;
+            margin: 0px;
+            background-position: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        footer p {
+            font-family: prompt;
+        }
+
+        footer a {
+            opacity: 0.7;
+            color: #af8650;
+            font-family: prompt;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        footer a:hover {
+            color: lightgrey;
+            opacity: 0.5;
+        }
+        .team-card .card-img-top {
+    width: 100%;
+    height: 500px; /* Adjust the height as needed */
+    object-fit:cover; /* Ensures the image covers the entire area without distortion */
+}
+
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <main>
+        <header>
+            <a href="index.html"><img src="images/Saturn-Transparent-Images.png" width="100px"
+                    title="Image by pngarts"></a>
+            <nav>
+                <ul>
+                    <li style="background-color: lightgrey; border-radius:
+                            50px"><a href="index.html" style="color: black;">Home</a></li>
+                    <li><a href="solar.html">Solar System</a></li>
+                    <li><a href="exploration.html">Exploration</a></li>
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="team">
+            <div class="container">
+                <h1 class="text-center mb-5">Meet Our Team</h1>
+                <div class="row justify-content-center">
+                    <!-- Team Member 1 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card team-card hover-effect">
+                            <img src="images/WhatsApp Image 2024-10-05 at 4.04.37 PM.jpeg" alt="John Doe" class="card-img-top rounded-circle shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mt-3">Amira Ahmed</h5>
+                                <p class="card-text">Software engineer</p>
+                                <a href="#" class="btn btn-dark btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 2 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card team-card hover-effect">
+                            <img src="images/WhatsApp Image 2024-10-05 at 4.07.49 PM.jpeg" alt="Jane Smith" class="card-img-top rounded-circle shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mt-3">Amany Gamal</h5>
+                                <p class="card-text">Software engineer</p>
+                                <a href="#" class="btn btn-dark btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 3 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card team-card hover-effect">
+                            <img src="images/WhatsApp Image 2024-10-05 at 4.02.38 PM.jpeg" alt="Bob Johnson" class="card-img-top rounded-circle shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mt-3">Habiba Adnan</h5>
+                                <p class="card-text">backed developer</p>
+                                <a href="#" class="btn btn-dark btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 4 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card team-card hover-effect">
+                            <img src="images/WhatsApp Image 2024-10-05 at 4.16.46 PM.jpeg" alt="Alice Brown" class="card-img-top rounded-circle shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mt-3">Mohamed Nasser</h5>
+                                <p class="card-text">Software engineer </p>
+                                <a href="#" class="btn btn-dark btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 5 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card team-card hover-effect">
+                            <img src="images/WhatsApp Image 2024-10-05 at 10.02.26 PM.jpeg" alt="Mike Davis" class="card-img-top rounded-circle shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mt-3">Abdelrahman Saad</h5>
+                                <p class="card-text">backed developer</p>
+                                <a href="#" class="btn btn-dark btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 6 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card team-card hover-effect">
+                            <img src="images/WhatsApp Image 2024-10-05 at 4.14.56 PM.jpeg" alt="Emily Chen" class="card-img-top rounded-circle shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mt-3">Eman Tamam</h5>
+                                <p class="card-text">Frontend developer</p>
+                                <a href="#" class="btn btn-dark btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            .hover-effect {
+                transition: transform 0.3s ease-in-out;
+            }
+        
+            .hover-effect:hover {
+                transform: translateY(-5px);
+            }
+        
+            .card-title, .card-text {
+                color: #333; /* Dark gray text */
+            }
+        
+            .btn {
+                color: #fff; /* White text for buttons */
+            }
+        </style>
+        
